@@ -1,15 +1,14 @@
 {
-  "name": "api-server",
+  "name": "api-server-solution",
   "version": "1.0.0",
-  "description": "Build an API Server",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "lint": "eslint \"**/*.js\"",
-    "watch": "nodemon index.js",
     "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json .",
-    "test-watch": "jest --watchAll",
-    "test": "jest"
+    "test": "jest --verbose",
+    "test-watch": "jest --watchAll --verbose"
   },
   "jest": {
     "testEnvironment": "node"
@@ -18,27 +17,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.2",
     "cors": "^2.8.5",
-    "debug": "^4.1.1",
     "dotenv": "^6.2.0",
-    "express": "^4.17.1",
+    "express": "^4.16.4",
+    "ipaddr.js": "^1.9.0",
     "jest": "^24.8.0",
-    "jsonwebtoken": "^8.4.0",
-    "mongodb-memory-server": "^2.7.3",
-    "mongoose": "^5.3.13",
-    "mongoose-schema-jsonschema": "^1.1.15",
-    "morgan": "^1.9.0",
+    "jsdoc": "^3.6.2",
+    "mongodb-memory-server": "^2.9.1",
+    "mongoose": "^5.4.2",
+    "mongoose-schema-jsonschema": "^1.2.1",
+    "morgan": "^1.9.1",
     "require-directory": "^2.1.1",
     "supertest": "^3.3.0",
-    "swagger-ui-express": "^4.0.2"
+    "swagger-ui-express": "^4.0.2",
+    "uuid": "^3.3.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chloieparsons-401-advanced-javascript/lab-14.git"
-  },
-  "bugs": {
-    "url": "https://github.com/chloieparsons-401-advanced-javascript/lab-14/issues"
-  },
-  "homepage": "https://github.com/chloieparsons-401-advanced-javascript/lab-14#readme"
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "express-swagger-generator": "^1.1.14",
+    "lint": "^0.6.5"
+  }
 }

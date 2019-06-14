@@ -11,6 +11,7 @@ const cwd = process.cwd();
 const express = require('express');
 
 const modelFinder = require(`${cwd}/src/middleware/model-finder.js`);
+const auth = require(`${cwd}/src/auth/middleware.js`);
 
 const router = express.Router();
 
@@ -37,7 +38,7 @@ router.get('/api/v1/:model', handleGetAll);
  * @returns {Object} 500 - Server error
  * @returns {Object} 200 - { count: 2, results: [{}, {}]}
  */
-router.post('/api/v1/:model', handlePost);
+router.post('/api/v1/:model', auth('create'), handlePost);
 
 /**
  * Get a list of records for model id provided
@@ -52,13 +53,16 @@ router.get('/api/v1/:model/:id', handleGetOne);
 /**
  * Modifies of records for model provided
  * @route PUT /{model}/{id}
+ * @route PATCH
  * @param {string} model.path.required - Resource model name
  * @param {number} id.path.required - Resource model name
  * @consumes
  * @returns {Object} 500 - Server error
  * @returns {Object} 200 - { count: 2, results: [{}, {}]}
  */
-router.put('/api/v1/:model/:id', handlePut);
+router.put('/api/v1/:model/:id', auth('update'), handlePut);
+router.patch('/api/v1/:model/:id', auth('update'), handlePut);
+
 
 /**
  * Deletes records for model provided
@@ -68,10 +72,9 @@ router.put('/api/v1/:model/:id', handlePut);
  * @returns {Object} 500 - Server error
  * @returns {Object} 200 - { count: 2, results: [{}, {}]}
  */
-router.delete('/api/v1/:model/:id', handleDelete);
+router.delete('/api/v1/:model/:id', auth('delete'), handleDelete);
 
 // Route Handlers
-
 
 function handleGetAll(request,response,next) {
   request.model.get()

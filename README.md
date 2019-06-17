@@ -1,34 +1,45 @@
-# lab-09
-Classes, Inheritance, Functional Programming
+# Build-an-api-server
+Build an api server using the two labs from earlier this week
 
-Author: Chloie Parsons
+###  Author: Chloie Parsons
 
-# Links and Resources
-* Submission PR: https://github.com/chloieparsons-401-advanced-javascript/lab-09/pull/2
-* Travis: https://www.travis-ci.com/chloieparsons-401-advanced-javascript/lab-09
-* Heroku: https://polar-ridge-33131.herokuapp.com/
+## Links and Resources
+* [Submission PR](https://github.com/chloieparsons-401-advanced-javascript/build-an-api-server/pull/2)
 
-# Documentation
-* api docs (API servers)
-* jsdoc (Server assignments)
-* MongoDB
+* [Travis](https://www.travis-ci.com/chloieparsons-401-advanced-javascript/build-an-api-server)
+* [Heroku](https://build-an-api-server.herokuapp.com/)
 
-# Setup
+
+## Setup
 * .env requirements
-PORT - 3000
-MONGODB_URI - mongodb://localhost:27017/class-09
 
-# Running the app
-npm start
-Endpoint: /foo/bar/
-Returns a JSON object with abc in it.
-Endpoint: /bing/zing/
-Returns a JSON object with xyz in it.
+  - ```PORT``` - 3000
+  - ```SECRET``` - choose a secret string 
+  - ```MONGODB_URI``` - mongodb://localhost:27017/api-auth-server
+  - ```TOKEN_EXPIRE``` - 15m
+
+## Running the app
+npm start script: node index.js
+
+Endpoint: /role
+ - Returns new role added
+
+Endpoint: /oauth
+ - Authorization route
+
+Endpoint: //api/v1/:model
+ - handleGetAll route
+ - handlePost
+
+Endpoint: //api/v1/:model/:id
+ - handlePut
+ - delete
 
 # Tests
-How do you run tests? npm test
-What assertions were made? do they do what they say they do
-What assertions need to be / should be made?
+How do you run tests? 
+* npm run test-watch
 
-# UML
-* Data flow(./assets/lab-09-uml.JPG)
+# UML Data Flow
+* API Server ![Image of API Server](./assets/lab-09-uml.JPG)
+
+* Auth Server ![Image of Auth Server](./assets/Authentication_UML.JPG)

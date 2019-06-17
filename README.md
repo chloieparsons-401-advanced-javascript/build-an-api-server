@@ -1,24 +1,24 @@
-# lab-09
-Classes, Inheritance, Functional Programming
+# Build-an-api-server
+Build an api server using the two labs from earlier this week
 
-Author: Chloie Parsons
+##Author: Chloie Parsons
 
-# Links and Resources
+## Links and Resources
 * Submission PR: https://github.com/chloieparsons-401-advanced-javascript/lab-09/pull/2
 * Travis: https://www.travis-ci.com/chloieparsons-401-advanced-javascript/lab-09
 * Heroku: https://polar-ridge-33131.herokuapp.com/
 
-# Documentation
+## Documentation
 * api docs (API servers)
 * jsdoc (Server assignments)
 * MongoDB
 
-# Setup
+## Setup
 * .env requirements
 PORT - 3000
 MONGODB_URI - mongodb://localhost:27017/class-09
 
-# Running the app
+## Running the app
 npm start
 Endpoint: /foo/bar/
 Returns a JSON object with abc in it.

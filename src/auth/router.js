@@ -22,11 +22,11 @@ authRouter.post('/role', (req, res, next) => {
   let role = new Role(req.body);
   
   role.save()
-   .then(result => {
-     res.status(200).send(result);
-   })
-   .catch(next);
- });
+    .then(result => {
+      res.status(200).send(result);
+    })
+    .catch(next);
+});
 
 /** 
  * Post route signs up user

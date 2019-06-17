@@ -16,7 +16,9 @@ const users = new mongoose.Schema({
   password: {type:String, required:true},
   email: {type: String},
   role: {type: String, default:'user', enum: ['admin','editor','user']},
-}, { toObject:{virtuals:true}, toJSON:{virtuals:true} //because monogoose says so
+}, 
+
+  { toObject:{virtuals:true}, toJSON:{virtuals:true} //because monogoose says so
 });
 
 users.virtual('acl', {
@@ -92,7 +94,7 @@ users.methods.generateToken = function(type) {
   
   let token = {
     id: this._id,
-    capabilities: capabilities[this.role],
+    capabilities: this.acl.capabilities[this.role],
     type: type || 'user', //type of token, use the type generated or default to 'user'
   };
   

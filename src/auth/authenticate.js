@@ -14,14 +14,16 @@ const _authError = require('../authError.js');
  */
 
 function _authenticate(user, capability) {
-  if ( user && (!capability || (user.can(capability))) ) {
-    req.user = user;
-    req.token = user.generateToken();
-    next();
-  }
-  else {
-    _authError();
-  }
+  return (req, next) => { 
+    if ( user && (!capability || (user.can(capability))) ) {
+      req.user = user;
+      req.token = user.generateToken();
+      next();
+    }
+    else {
+      _authError();
+    }
+  };
 }
 
 

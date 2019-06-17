@@ -12,7 +12,7 @@
 
 function _authError() {
   return (next) => {
-      next('Invalid User ID/Password');
+    next('Invalid User ID/Password');
   };
 }
 

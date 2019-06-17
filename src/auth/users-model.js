@@ -18,7 +18,7 @@ const users = new mongoose.Schema({
   role: {type: String, default:'user', enum: ['admin','editor','user']},
 }, 
 
-  { toObject:{virtuals:true}, toJSON:{virtuals:true} //because monogoose says so
+{ toObject:{virtuals:true}, toJSON:{virtuals:true}, //because monogoose says so
 });
 
 users.virtual('acl', {

@@ -30,7 +30,7 @@ describe('api server', () => {
 
   });
 
-  it('should be able to post to a valid model', ()  => {
+  it('should error on invalid model', ()  => {
 
     let obj = {name:'John', bats:'R',throws:'R',position:'C',team:'Bunnies'};
 
@@ -38,28 +38,8 @@ describe('api server', () => {
       .post('/api/v1/players')
       .send(obj)
       .then(results => {
-        expect(results.status).toBe(200);
-        expect(results.body.team).toEqual(obj.team);
+        expect(results.status).toBe(500);
+        expect(results.body.team).toEqual(undefined);
       });
-
   });
-
-
-  it('following a post to a valid model, should find a single record', () => {
-
-    let obj = {name:'John', bats:'R',throws:'R',position:'C',team:'Bunnies'};
-
-    return mockRequest
-      .post('/api/v1/players')
-      .send(obj)
-      .then(results => {
-        return mockRequest.get(`/api/v1/players/${results.body._id}`)
-          .then(list => {
-            expect(list.status).toBe(200);
-            expect(list.body.team).toEqual(obj.team);
-          });
-      });
-
-  });
-
 });

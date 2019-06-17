@@ -14,14 +14,14 @@ const _authError = require('../authError.js');
  * @param {@} str 
  * @description handles authentication info
  */
-function _authBasic(str) {
+function _authBasic(str, capability) {
     let base64Buffer = Buffer.from(str, 'base64'); 
     let bufferString = base64Buffer.toString();
     let [username, password] = bufferString.split(':'); 
     let auth = {username, password};
 
     return User.authenticateBasic(auth)
-      .then(user => _authenticate(user))
+      .then(user => _authenticate(user, capability))
       .catch(_authError);
   }
 

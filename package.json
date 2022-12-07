@@ -35,6 +35,6 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "express-swagger-generator": "^1.1.14",
-    "lint": "^0.6.5"
+    "lint": "^0.8.8"
   }
 }
